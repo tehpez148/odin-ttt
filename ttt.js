@@ -48,24 +48,30 @@ const playGame = ( function(){
           token: "O"
         }
       ];
+
+    const playerMove = (player) => {
+        let pick = prompt(`${player.name}, pick a number between 1 and 9`);
+        let bArray = boardForConsole();
+            while (bArray.includes(parseInt(pick)) === false) {
+                pick = prompt("That's no bueno, try again. 1 to 9.")}
+            console.log(`${player.name} did it! Their ${player.token} was dropped!`)
+    };
+
+
     
     const playRound = () => {
         console.log("Let's tic-tac-GO!");
         console.log("pick a number on the board, 1 to 9");
-        let win = 0;
-        while (win === 0) {
-            let bArray = boardForConsole();
+        
+        
+        let turn = true;
+        if (turn = true) {
+                playerMove(players[0]);
+                turn = false;
+              } else {
+                console.log("boobs");
+              }
 
-            
-                let pick = prompt("Pick a number between 1 to 9");
-                while (bArray.includes(parseInt(pick)) === false) {
-                    pick = prompt("That's no bueno, try again. 1 to 9.")
-                }
-                console.log("You did it!")
-
-                win = 1;
-
-        }
     };                      
 
 

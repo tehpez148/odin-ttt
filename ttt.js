@@ -22,6 +22,12 @@ const gameBoard = ( function() {
       const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
       console.log(boardWithCellValues);
     };
+
+    const dropToken = (playerMove) => { 
+      ///use drop token value???
+
+
+    }
    
 
     return {getBoard,printBoard};
@@ -82,6 +88,7 @@ const playGame = ( function(){
         changePlayerTurn();
         playRound(getActivePlayer);
 
+
       }
     };
 
@@ -99,15 +106,9 @@ const playGame = ( function(){
         console.log("pick a number on the board, 1 to 9");
 
         playerMove(getActivePlayer());
+
         checkWin(getActivePlayer());
-        
-        
-      
-
-  
-            
-
-    };                      
+      };                      
 
 
 

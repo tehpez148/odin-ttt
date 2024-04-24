@@ -81,8 +81,40 @@ const playGame = ( function(){
     };
 
     const checkWin = (player) => {
+      // horizontal winners 
       if (
-        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[0][1] === (player.token) && gameBoard.getBoard [0][2])
+        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[0][1] === (player.token)
+        && gameBoard.getBoard [0][2])
+        {alert(`${player.name} has succeeded!`);}
+      else if (
+        gameBoard.getBoard[1][0] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
+        && gameBoard.getBoard [1][2])
+        {alert(`${player.name} has succeeded!`);}
+      else if (
+        gameBoard.getBoard[2][0] === (player.token) && gameBoard.getBoard[2][1] === (player.token)
+        && gameBoard.getBoard [2][2])
+        {alert(`${player.name} has succeeded!`);}
+      // vertical winners 
+      else if (
+        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[1][0] === (player.token)
+        && gameBoard.getBoard [2][0])
+        {alert(`${player.name} has succeeded!`);}
+      else if (
+        gameBoard.getBoard[0][1] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
+        && gameBoard.getBoard [2][1])
+        {alert(`${player.name} has succeeded!`);}
+      else if (
+        gameBoard.getBoard[0][2] === (player.token) && gameBoard.getBoard[1][2] === (player.token)
+        && gameBoard.getBoard [2][2])
+        {alert(`${player.name} has succeeded!`);}
+        //diagonal winners 
+      else if (
+        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
+        && gameBoard.getBoard [2][2])
+        {alert(`${player.name} has succeeded!`);}
+      else if (
+        gameBoard.getBoard[0][2] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
+        && gameBoard.getBoard [2][0])
         {alert(`${player.name} has succeeded!`);}
       else {
         changePlayerTurn();

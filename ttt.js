@@ -86,7 +86,7 @@ console.log(gameBoard.printBoard())
 
 
 
-
+/*
 const playGame = ( function(){
 
     let boardForChecks = [1,2,3,4,5,6,7,8,9];
@@ -102,7 +102,7 @@ const playGame = ( function(){
           token: "O"
         }
       ];
-
+        
     const playerMove = (player) => {
         let pick = prompt(`${player.name}, pick a number between 1 and 9`);
         let bArray = boardForChecks;
@@ -113,7 +113,6 @@ const playGame = ( function(){
             gameBoard.dropToken(pick, player.token);
 
     };
-
     const checkWin = (player) => {
       // horizontal winners 
       console.log("checkWin is happening now :)")
@@ -192,4 +191,11 @@ const playGame = ( function(){
 
 
 playGame.playRound();
+*/
 
+const buttons = document.querySelectorAll(".griddies");
+buttons.forEach(function(button) {
+  button.addEventListener("click", function(id) {
+    console.log (`You click button ${id}`);
+  })
+});

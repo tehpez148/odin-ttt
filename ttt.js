@@ -20,17 +20,49 @@ const gameBoard = ( function() {
 
     const printBoard = () => {
       const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
-      console.log(boardWithCellValues);
+      return boardWithCellValues
+      
     };
 
-    const dropToken = (playerMove) => { 
-      ///use drop token value???
+  
+
+    const dropToken = (pick, player) => { 
+      let pickI = parseInt(pick);
+      console.log(`dropToken function has found ${pickI}`);
+      switch (pickI){
+      case 1:
+        board[0][0].addToken(player);
+        break;
+      case 2:
+        board [0][1].addToken(player);
+        break;
+      case 3:
+        board [0][2].addToken(player);
+        break;
+      case 4:
+        board[1][0].addToken(player);
+        break;
+      case 5:
+        board [1][1].addToken(player);
+        break;
+      case 6:
+        board [1][2].addToken(player);
+        break;
+      case 7:
+        board[2][0].addToken(player);
+        break;
+      case 8:
+        board [2][1].addToken(player);
+        break;
+      case 9:
+        board [2][2].addToken(player);
+        break; 
+        
+      };}
 
 
-    }
-   
-
-    return {getBoard,printBoard};
+  
+    return {getBoard,printBoard,dropToken};
 }) 
 ();
 
@@ -49,15 +81,15 @@ function Cell(){
 
 
 
-console.log(gameBoard.getBoard);
-gameBoard.printBoard();
+
+console.log(gameBoard.printBoard())
+
+
+
 
 const playGame = ( function(){
 
-    const boardForConsole = () => {
-        let boardArray = Array.from({length: 9}, (_, i) => i + 1);
-        return boardArray;
-    };
+    let boardForChecks = [1,2,3,4,5,6,7,8,9];
 
 
     const players = [
@@ -73,52 +105,60 @@ const playGame = ( function(){
 
     const playerMove = (player) => {
         let pick = prompt(`${player.name}, pick a number between 1 and 9`);
-        let bArray = boardForConsole();
+        let bArray = boardForChecks;
             while (bArray.includes(parseInt(pick)) === false) {
                 pick = prompt("That's no bueno, try again. 1 to 9.")}
-            console.log(`${player.name} did it! Their ${player.token} was dropped!`)
+            console.log(`${player.name} did it! Their ${player.token} was dropped!`);
+            delete bArray[(pick - 1)];
+            gameBoard.dropToken(pick, player.token);
 
     };
 
     const checkWin = (player) => {
       // horizontal winners 
+      console.log("checkWin is happening now :)")
       if (
-        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[0][1] === (player.token)
-        && gameBoard.getBoard [0][2])
+        gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[0][1] === (player.token)
+        && gameBoard.printBoard() [0][2])
         {alert(`${player.name} has succeeded!`);}
       else if (
-        gameBoard.getBoard[1][0] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
-        && gameBoard.getBoard [1][2])
+        gameBoard.printBoard()[1][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
+        && gameBoard.printBoard() [1][2])
         {alert(`${player.name} has succeeded!`);}
       else if (
-        gameBoard.getBoard[2][0] === (player.token) && gameBoard.getBoard[2][1] === (player.token)
-        && gameBoard.getBoard [2][2])
+        gameBoard.printBoard()[2][0] === (player.token) && gameBoard.printBoard()[2][1] === (player.token)
+        && gameBoard.printBoard() [2][2])
         {alert(`${player.name} has succeeded!`);}
       // vertical winners 
       else if (
-        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[1][0] === (player.token)
-        && gameBoard.getBoard [2][0])
+        gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][0] === (player.token)
+        && gameBoard.printBoard() [2][0])
         {alert(`${player.name} has succeeded!`);}
       else if (
-        gameBoard.getBoard[0][1] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
-        && gameBoard.getBoard [2][1])
+        gameBoard.printBoard()[0][1] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
+        && gameBoard.printBoard() [2][1])
         {alert(`${player.name} has succeeded!`);}
       else if (
-        gameBoard.getBoard[0][2] === (player.token) && gameBoard.getBoard[1][2] === (player.token)
-        && gameBoard.getBoard [2][2])
+        gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][2] === (player.token)
+        && gameBoard.printBoard() [2][2])
         {alert(`${player.name} has succeeded!`);}
         //diagonal winners 
       else if (
-        gameBoard.getBoard[0][0] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
-        && gameBoard.getBoard [2][2])
+        gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
+        && gameBoard.printBoard() [2][2])
         {alert(`${player.name} has succeeded!`);}
       else if (
-        gameBoard.getBoard[0][2] === (player.token) && gameBoard.getBoard[1][1] === (player.token)
-        && gameBoard.getBoard [2][0])
+        gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
+        && gameBoard.printBoard() [2][0])
         {alert(`${player.name} has succeeded!`);}
+      else if (boardForChecks.length === 0)
+      {alert("It's a draw!")}
+      //if no win yet, calls changePlayerTurn function and re-calls playRoud with a new active player 
       else {
         changePlayerTurn();
         playRound(getActivePlayer);
+        console.log(gameBoard.printBoard());
+    
 
 
       }
@@ -134,8 +174,6 @@ const playGame = ( function(){
     const getActivePlayer = () => activePlayer;
     
     const playRound = () => {
-        console.log("Let's tic-tac-GO!");
-        console.log("pick a number on the board, 1 to 9");
 
         playerMove(getActivePlayer());
 
@@ -146,13 +184,12 @@ const playGame = ( function(){
 
 
 
-    return {boardForConsole, playRound};
+    return {playRound};
 
 })();
 
 
-playGame.boardForConsole;
+
 
 playGame.playRound();
-
 

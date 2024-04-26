@@ -1,10 +1,10 @@
-.body{
+body{
     display: flex;
     flex-direction: column;
     padding:0;
     margin:10px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: cornsilk;
+    background-color: slategrey;
 }
 
 header{
@@ -14,10 +14,13 @@ header{
     background: cornflowerblue;
     color: white;
     width: 60%;
+    height:30px;
+    padding:25px;
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
     border-color: black;
+    font-size: 25px;
 }
 
 #main {
@@ -40,11 +43,31 @@ header{
 #middle{
     padding-top:60px;
     flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game-grid
 {
     display: grid;
-    gap: 1px;
+    gap: 15px;
     grid-template-columns: repeat(3, 1fr);
+    justify-content: center;    
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 400px;
+    width:400px;
+}
+
+
+.griddies{
+    padding:14px;
+    border:none;
+    transition-duration: 0.4s;
+
+}
+
+.griddies:hover{
+    background-color: darkgrey;
 }

@@ -97,12 +97,14 @@ const playGame = ( function(){
         {
           name: "Player One",
           token: "X",
-          color: "red"
+          color: "red",
+          score: 0
         },
         {
           name: "Player Two",
           token: "O",
-          color: "blue"
+          color: "blue",
+          score: 0
         }
       
       ];

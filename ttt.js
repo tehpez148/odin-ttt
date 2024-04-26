@@ -89,6 +89,8 @@ console.log(gameBoard.printBoard())
 //controller to play the game
 const playGame = ( function(){
 
+  let turns = 0;
+
 
     //array to hold player information, also color for their tokens <@:)
     const players = [
@@ -109,6 +111,7 @@ const playGame = ( function(){
            
             console.log(`${player.name} did it! Their ${player.token} was dropped!`);
             gameBoard.dropToken(pick, player.token);
+            turns += 1;
             checkWin(getActivePlayer());
 
     };
@@ -118,48 +121,49 @@ const playGame = ( function(){
       console.log("checkWin is happening now :)")
       if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[0][1] === (player.token)
-        && gameBoard.printBoard() [0][2])
+        && gameBoard.printBoard() [0][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[1][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
-        && gameBoard.printBoard() [1][2])
+        && gameBoard.printBoard() [1][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[2][0] === (player.token) && gameBoard.printBoard()[2][1] === (player.token)
-        && gameBoard.printBoard() [2][2])
+        && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       // vertical winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][0] === (player.token)
-        && gameBoard.printBoard() [2][0])
+        && gameBoard.printBoard() [2][0] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][1] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
-        && gameBoard.printBoard() [2][1])
+        && gameBoard.printBoard() [2][1] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][2] === (player.token)
-        && gameBoard.printBoard() [2][2])
+        && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
         //diagonal winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
-        && gameBoard.printBoard() [2][2])
+        && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
-        && gameBoard.printBoard() [2][0])
+        && gameBoard.printBoard() [2][0] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
-      //else if (boardForChecks.length === 0)
-      //{winnerDiv.textContent = ("It's a draw!")}
+      else if (turns === 9)
+        {winnerDiv.textContent = ("It's a draw!");
+      dialog.showModal();}
       //if no win yet, calls changePlayerTurn function and allows next player to pick a button. 
       else {
         changePlayerTurn();

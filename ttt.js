@@ -94,12 +94,12 @@ const playGame = ( function(){
 
     const players = [
         {
-          name: "Player one",
+          name: "Player One",
           token: "X",
           color: "red"
         },
         {
-          name: "Player two",
+          name: "Player Two",
           token: "O",
           color: "blue"
         }
@@ -217,6 +217,7 @@ buttons.forEach(function(button) {
     let pick = parseInt(obj.id);
     obj.textContent = playGame.getActivePlayer().token;
     obj.style.color = playGame.getActivePlayer().color;
+    obj.disabled = true;
     playGame.playerMove(playGame.getActivePlayer(),pick);
    
     

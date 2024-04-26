@@ -40,30 +40,32 @@ header{
     align-content: space-between;
 }
 
-#turn{
+#leftbox > * {
     border: solid black;
-    color: ivory;
-    padding: 20px;
-    font-size: 24px;
+    border-radius: 10px;
+    color:ivory;
     background-color: cornflowerblue;
+    padding:15px;
+    font-size: 24px;
+}
+
+#turn{
+    
     width: 240px;
     border-radius: 10px;
+    margin-top: 40px;
     margin-bottom: 40px;
 }
 
 #reset{
     width: 150px;
-    padding: 20px;
-    border: solid black;
-    border-radius:10px ;
-    color:ivory;
-    padding: 20px;
-    font-size: 24px;
-    background-color: cornflowerblue;
-    transition-duration: 0.7s ;
 }
 
-#reset:hover {
+#leftbox button {
+    transition-duration: 0.5s;
+}
+
+#leftbox button:hover {
     color: cornflowerblue;
     background-color: ivory;
 

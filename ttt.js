@@ -86,7 +86,7 @@ console.log(gameBoard.printBoard())
 
 
 
-/*
+
 const playGame = ( function(){
 
     let boardForChecks = [1,2,3,4,5,6,7,8,9];
@@ -103,14 +103,14 @@ const playGame = ( function(){
         }
       ];
         
-    const playerMove = (player) => {
-        let pick = prompt(`${player.name}, pick a number between 1 and 9`);
-        let bArray = boardForChecks;
-            while (bArray.includes(parseInt(pick)) === false) {
-                pick = prompt("That's no bueno, try again. 1 to 9.")}
+    const playerMove = (player,pick) => {
+        //let bArray = boardForChecks;
+            //while (bArray.includes(parseInt(pick)) === false) {
+           
             console.log(`${player.name} did it! Their ${player.token} was dropped!`);
-            delete bArray[(pick - 1)];
+            //delete bArray[(pick - 1)];
             gameBoard.dropToken(pick, player.token);
+            checkWin(getActivePlayer());
 
     };
     const checkWin = (player) => {
@@ -155,7 +155,6 @@ const playGame = ( function(){
       //if no win yet, calls changePlayerTurn function and re-calls playRoud with a new active player 
       else {
         changePlayerTurn();
-        playRound(getActivePlayer);
         console.log(gameBoard.printBoard());
     
 
@@ -172,30 +171,36 @@ const playGame = ( function(){
 
     const getActivePlayer = () => activePlayer;
     
-    const playRound = () => {
+    /*const playRound = () => {
 
-        playerMove(getActivePlayer());
+        playerMove(getActivePlayer(),);
 
         checkWin(getActivePlayer());
+
+        return;
       };                      
 
+*/
 
 
 
-
-    return {playRound};
+    return {getActivePlayer,playerMove};
 
 })();
 
 
 
+playGame.playRound;
 
-playGame.playRound();
-*/
+
 
 const buttons = document.querySelectorAll(".griddies");
 buttons.forEach(function(button) {
-  button.addEventListener("click", function(id) {
-    console.log (`You click button ${id}`);
+  button.addEventListener("click", function() {
+    let obj = document.activeElement;
+    console.log (`You clicked button ${obj.id}`);
+    let pick = parseInt(obj.id);
+    playGame.playerMove(playGame.getActivePlayer(),pick);
+    
   })
 });

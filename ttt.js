@@ -220,3 +220,9 @@ function showPlayer (player){
   currentPlayer.textContent = player.name;
   displayPlayer.appendChild(currentPlayer);
 };
+
+
+const reloadBut = document.getElementById('reset');
+reloadBut.addEventListener('click', () => {
+  location.reload();
+})

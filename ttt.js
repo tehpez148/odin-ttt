@@ -88,7 +88,7 @@ console.log(gameBoard.printBoard())
 
 //controller to play the game
 const playGame = ( function(){
-
+  //turn number, gets added to after every turn
   let turns = 0;
 
 
@@ -161,6 +161,7 @@ const playGame = ( function(){
         && gameBoard.printBoard() [2][0] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
         dialog.showModal();}
+        //checks if 9 turns have occured without a winner
       else if (turns === 9)
         {winnerDiv.textContent = ("It's a draw!");
       dialog.showModal();}

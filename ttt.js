@@ -204,12 +204,28 @@ playGame.playRound;
 
 
 const buttons = document.querySelectorAll(".griddies");
+
+buttons.forEach(function(button) {
+  button.addEventListener("hover", function(){
+    let symbol = playGame.getActivePlayer().token;
+    let symbolP = document.createElement('p');
+    symbolP.textContent = symbol;
+    button.appendChild(symbolP);
+  
+
+  })
+
+});
+
+
 buttons.forEach(function(button) {
   button.addEventListener("click", function() {
     let obj = document.activeElement;
     console.log (`You clicked button ${obj.id}`);
     let pick = parseInt(obj.id);
+    obj.textContent = playGame.getActivePlayer().token;
     playGame.playerMove(playGame.getActivePlayer(),pick);
+   
     
   })
 });

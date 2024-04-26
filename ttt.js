@@ -119,40 +119,48 @@ const playGame = ( function(){
       if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[0][1] === (player.token)
         && gameBoard.printBoard() [0][2])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (
         gameBoard.printBoard()[1][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [1][2])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (
         gameBoard.printBoard()[2][0] === (player.token) && gameBoard.printBoard()[2][1] === (player.token)
         && gameBoard.printBoard() [2][2])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       // vertical winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][0] === (player.token)
         && gameBoard.printBoard() [2][0])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][1] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][1])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][2] === (player.token)
         && gameBoard.printBoard() [2][2])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
         //diagonal winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][2])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][0])
-        {alert(`${player.name} has succeeded!`);}
+        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        dialog.showModal();}
       else if (boardForChecks.length === 0)
-      {alert("It's a draw!")}
-      //if no win yet, calls changePlayerTurn function and re-calls playRoud with a new active player 
+      {winnerDiv.textContent = ("It's a draw!")}
+      //if no win yet, calls changePlayerTurn function and allows next player to pick a button. 
       else {
         changePlayerTurn();
         showPlayer(getActivePlayer());
@@ -225,4 +233,13 @@ function showPlayer (player){
 const reloadBut = document.getElementById('reset');
 reloadBut.addEventListener('click', () => {
   location.reload();
-})
+});
+
+const dialog = document.querySelector('dialog');
+const winnerDiv = document.createElement('p');
+dialog.appendChild(winnerDiv);
+
+const dialogReleadButton = document.querySelector("dialog button");
+dialogReleadButton.addEventListener('click', () => {
+  location.reload();
+});

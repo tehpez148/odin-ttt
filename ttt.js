@@ -196,7 +196,7 @@ const playGame = ( function(){
 
 
 
-    return {getActivePlayer,playerMove};
+    return {getActivePlayer,playerMove,players};
 
 })();
 
@@ -219,8 +219,7 @@ buttons.forEach(function(button) {
     obj.style.color = playGame.getActivePlayer().color;
     obj.disabled = true;
     playGame.playerMove(playGame.getActivePlayer(),pick);
-   
-    
+  
   })
 });
 
@@ -249,7 +248,34 @@ const dialog = document.querySelector('dialog');
 const winnerDiv = document.createElement('p');
 dialog.appendChild(winnerDiv);
 
-const dialogReleadButton = document.querySelector("dialog button");
-dialogReleadButton.addEventListener('click', () => {
+const dialogReleodButton = document.querySelector("dialog button");
+dialogReleodButton.addEventListener('click', () => {
   location.reload();
+});
+
+
+const dialog1 = document.getElementById("name1form");
+const showdialog1 = document.getElementById("player1name");
+
+showdialog1.addEventListener("click", () =>{
+  dialog1.showModal();
+});
+
+const new1name = document.getElementById("name1form-submit");
+new1name.addEventListener("click", () =>{
+  let newName = document.getElementById("one-name").value;
+  playGame.players[0].name = newName;
+});
+
+const dialog2 = document.getElementById("name2form");
+const showdialog2 = document.getElementById("player2name");
+
+showdialog2.addEventListener("click", () =>{
+  dialog2.showModal();
+});
+
+const new2name = document.getElementById("name2form-submit");
+new2name.addEventListener("click", () =>{
+  let newName = document.getElementById("two-name").value;
+  playGame.players[1].name = newName;
 });

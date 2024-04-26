@@ -11,6 +11,8 @@
     <header>Let's Tic-Tac-Go!</header>
     <div id = "main">
         <div id = "leftbox">
+            <button id = "player1name">Change One Name</button>
+            <button id = "player2name">Change Two Name</button>
             <div id = "turn">Turn:</div>
             <button id ="reset">Reset</button>
         </div>
@@ -28,11 +30,22 @@
             </div>
         </div>
         <dialog>
-            
             <button autofocus>Reset</button>
         </dialog>
-        
     </div>
-    
+    <dialog id = "name1form">
+        <form method="dialog" >
+            <label for = "one-name">New Name: </label>
+            <input type="text" id = "one-name" placeholder="Set Player One's name">
+            <input type="submit" id ="name1form-submit" value="Enter">
+        </form>
+    </dialog>
+    <dialog id = "name2form">
+        <form method="dialog" >
+            <label for = "two-name">New Name: </label>
+            <input type="text" id = "two-name" placeholder="Set Player Two's name">
+            <input type="submit" id ="name2form-submit" value="Enter">
+        </form>
+    </dialog>
 </body>
 </html>

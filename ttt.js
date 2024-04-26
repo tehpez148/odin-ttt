@@ -95,12 +95,15 @@ const playGame = ( function(){
     const players = [
         {
           name: "Player one",
-          token: "X"
+          token: "X",
+          color: "red"
         },
         {
           name: "Player two",
-          token: "O"
+          token: "O",
+          color: "blue"
         }
+      
       ];
         
     const playerMove = (player,pick) => {
@@ -205,17 +208,6 @@ playGame.playRound;
 
 const buttons = document.querySelectorAll(".griddies");
 
-buttons.forEach(function(button) {
-  button.addEventListener("hover", function(){
-    let symbol = playGame.getActivePlayer().token;
-    let symbolP = document.createElement('p');
-    symbolP.textContent = symbol;
-    button.appendChild(symbolP);
-  
-
-  })
-
-});
 
 
 buttons.forEach(function(button) {
@@ -224,6 +216,7 @@ buttons.forEach(function(button) {
     console.log (`You clicked button ${obj.id}`);
     let pick = parseInt(obj.id);
     obj.textContent = playGame.getActivePlayer().token;
+    obj.style.color = playGame.getActivePlayer().color;
     playGame.playerMove(playGame.getActivePlayer(),pick);
    
     

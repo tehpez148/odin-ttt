@@ -155,6 +155,7 @@ const playGame = ( function(){
       //if no win yet, calls changePlayerTurn function and re-calls playRoud with a new active player 
       else {
         changePlayerTurn();
+        showPlayer(getActivePlayer());
         console.log(gameBoard.printBoard());
     
 
@@ -204,3 +205,18 @@ buttons.forEach(function(button) {
     
   })
 });
+
+
+const displayPlayer = document.getElementById('turn');
+let startingPlayer = document.createElement('p');
+startingPlayer.textContent = playGame.getActivePlayer().name;
+displayPlayer.appendChild(startingPlayer);
+
+function showPlayer (player){
+  let oldPlayer = displayPlayer.querySelector('p');
+  oldPlayer.remove();
+
+  let currentPlayer = document.createElement('p');
+  currentPlayer.textContent = player.name;
+  displayPlayer.appendChild(currentPlayer);
+};

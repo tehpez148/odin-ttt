@@ -124,44 +124,52 @@ const playGame = ( function(){
       if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[0][1] === (player.token)
         && gameBoard.printBoard() [0][2] === (player.token))
-        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        {winnerDiv.textContent = (`${player.name} has succeeded!`)
+        player.score += 1;
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[1][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [1][2] === (player.token))
-        {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        {winnerDiv.textContent = (`${player.name} has succeeded!`)
+        player.score += 1;
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[2][0] === (player.token) && gameBoard.printBoard()[2][1] === (player.token)
         && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
       // vertical winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][0] === (player.token)
         && gameBoard.printBoard() [2][0] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][1] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][1] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][2] === (player.token)
         && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
         //diagonal winners 
       else if (
         gameBoard.printBoard()[0][0] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][2] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
       else if (
         gameBoard.printBoard()[0][2] === (player.token) && gameBoard.printBoard()[1][1] === (player.token)
         && gameBoard.printBoard() [2][0] === (player.token))
         {winnerDiv.textContent = (`${player.name} has succeeded!`);
+        player.score += 1;
         dialog.showModal();}
         //checks if 9 turns have occured without a winner
       else if (turns === 9)
@@ -277,3 +285,12 @@ new2name.addEventListener("click", () =>{
   playGame.players[1].name = newName;
   showPlayer(playGame.getActivePlayer());
 });
+
+
+//appends score of each player to appropriate div 
+
+const player1score = document.getElementById('player1scoretitle');
+function updateScore(player){
+  
+}
+

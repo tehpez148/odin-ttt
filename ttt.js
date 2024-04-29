@@ -194,9 +194,25 @@ const playGame = ( function(){
 
     const getActivePlayer = () => activePlayer;
 
+    const resetGame = () => {
+      activePlayer = players[0];
+      turns = 0;
+      buttons.forEach(function(button) {
+        button.textContent = parseInt(button.id);
+        button.style.color = 'ivory';
+        button.disabled = false;
+        let pick = button.id;
+        gameBoard.dropToken(pick, 0);
 
 
-    return {getActivePlayer,playerMove,players};
+      });
+
+
+    }
+
+
+
+    return {getActivePlayer,playerMove,players, resetGame};
 
 })();
 
@@ -253,11 +269,13 @@ dialog.appendChild(winnerDiv);
 //adds a reset button to the winner dialog box
 const dialogReleodButton = document.querySelector("dialog button");
 dialogReleodButton.addEventListener('click', () => {
-  location.reload();
+  updateScore();
+  playGame.resetGame();
+  dialog.close();
 });
 
 //two dialog boxes to changes the names of both players, player1 or player 2. 
-//calls show player function to update if needed. 
+//calls show player and updateScore function to update if needed. 
 const dialog1 = document.getElementById("name1form");
 const showdialog1 = document.getElementById("player1name");
 
@@ -320,4 +338,11 @@ function updateScore(){
 }
 
 updateScore();
+
+//reset game function 
+
+function resetGame()
+{
+  activePlayer = players[0];
+}
 

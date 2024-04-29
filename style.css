@@ -40,6 +40,8 @@ header{
     align-content: space-between;
 }
 
+
+
 #leftbox > * {
     border: solid black;
     border-radius: 10px;
@@ -131,4 +133,14 @@ dialog button {
     font-size: 24px;
     background-color: cornflowerblue;
 
+}
+
+
+#rightbox >  * {
+    border: solid black;
+    border-radius: 10px;
+    color:ivory;
+    background-color: cornflowerblue;
+    padding:4px;
+    font-size: 24px;
 }

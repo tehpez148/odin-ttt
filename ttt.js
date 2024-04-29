@@ -200,6 +200,7 @@ const playGame = ( function(){
       buttons.forEach(function(button) {
         button.textContent = parseInt(button.id);
         button.style.color = 'ivory';
+  
         button.disabled = false;
         let pick = button.id;
         gameBoard.dropToken(pick, 0);
@@ -338,11 +339,4 @@ function updateScore(){
 }
 
 updateScore();
-
-//reset game function 
-
-function resetGame()
-{
-  activePlayer = players[0];
-}
 

@@ -26,12 +26,12 @@ header{
 #main {
     display: flex;
     flex-direction: row;
-    flex-grow: 1,2;
+    flex-grow: 1,2,1;
     width:80%;
     height: 80vh;
 }
 
-#leftbox{
+#leftbox, #rightbox{
     padding-top: 50px;
     flex-grow: 1;
     display: flex;

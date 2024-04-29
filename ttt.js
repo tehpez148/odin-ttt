@@ -199,8 +199,7 @@ const playGame = ( function(){
       turns = 0;
       buttons.forEach(function(button) {
         button.textContent = parseInt(button.id);
-        button.style.color = 'ivory';
-  
+        button.style.color = 'transparent';
         button.disabled = false;
         let pick = button.id;
         gameBoard.dropToken(pick, 0);

@@ -270,6 +270,7 @@ new1name.addEventListener("click", () =>{
   let newName = document.getElementById("one-name").value;
   playGame.players[0].name = newName;
   showPlayer(playGame.getActivePlayer());
+  updateScore();
 });
 
 const dialog2 = document.getElementById("name2form");
@@ -284,13 +285,39 @@ new2name.addEventListener("click", () =>{
   let newName = document.getElementById("two-name").value;
   playGame.players[1].name = newName;
   showPlayer(playGame.getActivePlayer());
+  updateScore();
 });
 
 
 //appends score of each player to appropriate div 
 
+const score1 = document.getElementById('score1');
+const score2 = document.getElementById('score2');
 const player1score = document.getElementById('player1scoretitle');
-function updateScore(player){
-  
+const player2score = document.getElementById('player2scoretitle');
+
+
+
+function updateScore(){
+
+  let newtitle1 = document.createElement('p');
+  newtitle1.textContent = playGame.players[0].name;
+  score1.replaceChild(newtitle1, score1.firstChild);
+
+  let newtitle2 = document.createElement('p');
+  newtitle2.textContent = playGame.players[1].name;
+  score2.replaceChild(newtitle2, score2.firstChild);
+
+
+
+  let newpScore1 = document.createElement('p');
+  newpScore1.textContent = playGame.players[0].score;
+  player1score.replaceChild(newpScore1,player1score.firstChild);
+
+  let newpScore2 = document.createElement('p');
+  newpScore2.textContent = playGame.players[1].score;
+  player2score.replaceChild(newpScore2, player2score.firstChild) 
 }
+
+updateScore();
 
